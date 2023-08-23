@@ -19,15 +19,8 @@ public class Artist {
     private String country;
 
 
-    public Artist(){
+    public Artist() {
 
-    }
-    public Artist(String name, String surname, String type, int age, String country) {
-        this.name = name;
-        this.surname = surname;
-        this.type = type;
-        this.age = age;
-        this.country = country;
     }
 
     public void setId(Long id) {

@@ -14,7 +14,6 @@
 
 <section style="margin-left: 22vw">
     <ul style="list-style-type: none;">
-
         <li th:each="song : ${album.get().getSongs()}">
             <div class="container">
                 <div class="centered" style="justify-content: center; width: 20vw; height: 5vw">
@@ -33,21 +32,18 @@
                         </li>
                     </ul>
                 </div>
-                <div>
-
-                </div>
             </div>
         </li>
     </ul>
-
-
 </section>
+
 <div class="container">
-    <form th:action="@{/app/add-song(id=${album.get().getId()})}" method="post" >
-        <button class="centered" type="submit" style="width: 400px; height: 100px; font-size: 30px; justify-content: center">Dodaj piosenki i artystów</button>
+    <form th:action="@{/app/add-song(id=${album.get().getId()})}" method="post">
+        <button class="centered" type="submit"
+                style="background-color: green; width: 25vw; height: 5vw; font-size: 2vw; justify-content: center; margin-left: 35vw">Dodaj piosenki i artystów
+        </button>
     </form>
 </div>
-
 
 </body>
 </html>

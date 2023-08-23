@@ -29,10 +29,11 @@ public class Album {
         this.artists = artists;
     }
 
-    public void addSong(Song song){
+    public void addSong(Song song) {
         songs.add(song);
     }
-    public void addArtists(Artist artist){
+
+    public void addArtists(Artist artist) {
         artists.add(artist);
     }
 

@@ -45,37 +45,48 @@ public class AlbumController {
                               @RequestParam(required = false) List<Artist> selectedValues) {
         if (selectedValues == null) {
             selectedValues = List.of();
-
         }
         if (albumRepository.findById(id).isEmpty()) {
             Album album = new Album(name, price, List.of(songName), selectedValues);
+            addArtistToSong(songName, selectedValues);
             albumRepository.save(album);
         } else {
-            System.out.println(id);
-            AlbumSong albumSong = new AlbumSong();
-            albumSong.setAlbum(albumRepository.findById(id).get());
-            albumSong.setSong(songName);
-            albumSongRepository.save(albumSong);
-
-            for (Artist artist : selectedValues) {
-                AlbumArtist albumArtist = new AlbumArtist();
-                albumArtist.setAlbum(albumRepository.findById(id).get());
-                albumArtist.setArtist(artist);
-                albumArtistRepository.save(albumArtist);
-            }
-
-            for (Artist artist : selectedValues) {
-                SongArtist songArtist = new SongArtist();
-                songArtist.setArtist(artist);
-                songArtist.setSong(songName);
-                songArtistRepository.save(songArtist);
-            }
+            addAlbumToSong(albumRepository.findById(id).get(), songName);
+            addArtistsToAlbum(albumRepository.findById(id).get(), selectedValues);
+            addArtistToSong(songName, selectedValues);
         }
         model.addAttribute("latestID", getLatestID());
         model.addAttribute("album", albumRepository.findById(id));
         model.addAttribute("allArtist", artistRepository.findAll());
         model.addAttribute("allSongs", songRepository.findAll());
         return "addAlbumWithID";
+    }
+
+    public void addAlbumToSong(Album album, Song song) {
+        AlbumSong albumSong = new AlbumSong();
+        albumSong.setAlbum(album);
+        albumSong.setSong(song);
+        albumSongRepository.save(albumSong);
+    }
+
+
+    public void addArtistsToAlbum(Album album, List<Artist> artists) {
+        for (Artist artist : artists) {
+            AlbumArtist albumArtist = new AlbumArtist();
+            albumArtist.setAlbum(album);
+            albumArtist.setArtist(artist);
+            albumArtistRepository.save(albumArtist);
+        }
+    }
+
+
+    public void addArtistToSong(Song song, List<Artist> artists) {
+        for (Artist artist : artists) {
+            SongArtist songArtist = new SongArtist();
+            songArtist.setArtist(artist);
+            songArtist.setSong(song);
+            songArtistRepository.save(songArtist);
+        }
     }
 
     public Long getLatestID() {

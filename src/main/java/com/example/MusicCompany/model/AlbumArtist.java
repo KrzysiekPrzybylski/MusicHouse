@@ -18,11 +18,6 @@ public class AlbumArtist {
     @JoinColumn(name = "artists_id")
     private Artist artist;
 
-    public AlbumArtist(Album album, Artist artist) {
-        this.album = album;
-        this.artist = artist;
-    }
-
     public AlbumArtist() {
 
     }

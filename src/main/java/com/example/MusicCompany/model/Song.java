@@ -29,9 +29,10 @@ public class Song {
     )
     private List<Artist> artists;
 
-    public void addArtist(Artist artist){
+    public void addArtist(Artist artist) {
         artists.add(artist);
     }
+
     public List<Artist> getArtists() {
         return artists;
     }
