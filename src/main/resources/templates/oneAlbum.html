@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Albumów</title>
+    <link rel="stylesheet" href="/stylesArtist.css">
+</head>
+<body>
+<header>
+    <span><h1 th:text="${'&#127932 ' + album.get().getName()}" style="font-size: xxx-large"></h1></h1></span>
+    <h2 th:text="${' Cena: ' + album.get().getPrice() + ' PLN'}" style="font-size: 30px"></h2>
+</header>
+
+<section style="margin-left: 22vw">
+    <ul style="list-style-type: none;">
+
+        <li th:each="song : ${album.get().getSongs()}">
+            <div class="container">
+                <div class="centered" style="justify-content: center; width: 20vw; height: 5vw">
+                    <h2 th:text="${song.name}" style="text-align: center;font-size: 36px;"></h2>
+                </div>
+                <div class="centered" style="width: 35vw; height: 5vw">
+                    <ul>
+                        <li th:each="artist : ${song.getArtists()}">
+                            <h3 th:text="*{artist.getName()}" style="display: inline; font-size: 1vw;"></h3>
+                            <h3 th:text="*{artist.getSurname()}" style="display: inline;font-size: 1vw;"></h3>
+                            <h3 th:text="*{', Lat: ' + artist.getAge()}" style="display: inline;font-size: 1vw;"></h3>
+                            <h3 th:text="*{', Kraj: ' + artist.getCountry()}"
+                                style="display: inline;font-size: 1vw;"></h3>
+                            <h3 th:text="*{', Typ muzyki: ' + artist.getType()}"
+                                style="display: inline;font-size: 1vw;"></h3>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+
+                </div>
+            </div>
+        </li>
+    </ul>
+
+
+</section>
+<div class="container">
+    <form th:action="@{/app/add-song(id=${album.get().getId()})}" method="post" >
+        <button class="centered" type="submit" style="width: 400px; height: 100px; font-size: 30px; justify-content: center">Dodaj piosenki i artystów</button>
+    </form>
+</div>
+
+
+</body>
+</html>
