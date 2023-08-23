@@ -14,8 +14,7 @@
 
 </header>
 
-<form th:action="@{/app/add-song(id=${album.get().getId()})}" method="post">
-
+<form id="form" th:action="@{/app/add-song(id=${album.get().getId()})}" method="post">
     <div class="form-group">
         <label><h2>Piosenki:</h2></label>
         <select name="songName">
@@ -36,12 +35,20 @@
         <button th:href="@{/app/add-song(id=${album.get().getId()})}" method="post">Dodaj piosenkę wraz z artystami
         </button>
         <a th:href="@{/app/oferta}" style="text-decoration: none; color: white;">
-            <div class="goToOgferta" style="text-align: center; font-size: 22px; width: 300px; height: 50px; padding: 10px; margin-left: 45vw; margin-top: 20px; background-color: #333333; border-radius: 10px">Przejdź do oferty wydawnictwa</div></a>
+            <div class="goToOgferta"
+                 style="text-align: center; font-size: 22px; width: 300px; height: 50px; padding: 10px; margin-left: 45vw; margin-top: 20px; background-color: #333333; border-radius: 10px">
+                Przejdź do oferty wydawnictwa
+            </div>
+        </a>
 
-<!--        <button th:href="@{/app/oferta}" style="width: 435px">Przejdź do oferty wydawnictwa</button>-->
     </div>
 
 </form>
+<script>
+    document.getElementById('form').addEventListener('submit', function (event) {
+        alert('Piosenka została poprawnie dodana!');
+    });
+</script>
 </body>
 </html>
 

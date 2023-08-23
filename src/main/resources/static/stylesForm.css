@@ -73,7 +73,6 @@ button:hover {
     background-color: #494848;
 }
 
-/* Resetowanie domyślnych stylów */
 select {
     appearance: none;
     -webkit-appearance: none;
@@ -88,24 +87,20 @@ select {
     cursor: pointer;
 }
 
-/* Styl po najechaniu */
 select:hover {
     border-color: #999;
 }
 
-/* Styl aktywnego pola */
 select:focus {
     outline: none;
     border-color: #007bff;
     box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
 }
 
-/* Dostosowanie strzałki rozwijania dla przeglądarek Chrome i Safari */
 select::-ms-expand {
     display: none;
 }
 
-/* Styl strzałki rozwijania */
 select:after {
     font-size: 14px;
     color: #070707;
