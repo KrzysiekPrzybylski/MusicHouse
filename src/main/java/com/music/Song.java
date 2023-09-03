@@ -1,6 +1,8 @@
 package com.music;
 import jakarta.persistence.*;
 import org.hibernate.mapping.List;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 
 @Entity

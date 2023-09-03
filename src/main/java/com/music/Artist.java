@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import org.hibernate.mapping.List;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 
 @Entity
