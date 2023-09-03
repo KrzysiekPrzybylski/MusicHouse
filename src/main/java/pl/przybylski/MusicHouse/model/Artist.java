@@ -1,4 +1,4 @@
-package com.example.MusicCompany.model;
+package pl.przybylski.MusicHouse.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

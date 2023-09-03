@@ -1,11 +1,12 @@
-package com.example.MusicCompany.controller;
+package pl.przybylski.MusicHouse.controller;
 
-import com.example.MusicCompany.model.*;
-import com.example.MusicCompany.repository.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.przybylski.MusicHouse.model.*;
+import pl.przybylski.MusicHouse.repository.*;
 
 import java.util.*;
 

@@ -1,14 +1,11 @@
-package com.example.MusicCompany.controller;
+package pl.przybylski.MusicHouse.controller;
 
-import com.example.MusicCompany.model.Album;
-import com.example.MusicCompany.repository.AlbumRepository;
-import com.example.MusicCompany.repository.SongRepository;
+import pl.przybylski.MusicHouse.repository.AlbumRepository;
+import pl.przybylski.MusicHouse.repository.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Controller
 @RequestMapping("/app")

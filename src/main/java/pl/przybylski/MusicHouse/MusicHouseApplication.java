@@ -1,13 +1,13 @@
-package com.example.MusicCompany;
+package pl.przybylski.MusicHouse;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MusicCompanyApplication {
+public class MusicHouseApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MusicCompanyApplication.class, args);
+        SpringApplication.run(MusicHouseApplication.class, args);
     }
 
 }

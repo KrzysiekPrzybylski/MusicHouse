@@ -1,6 +1,6 @@
-package com.example.MusicCompany.repository;
+package pl.przybylski.MusicHouse.repository;
 
-import com.example.MusicCompany.model.Album;
+import pl.przybylski.MusicHouse.model.Album;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

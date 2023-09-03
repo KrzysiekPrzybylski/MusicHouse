@@ -1,11 +1,9 @@
-package com.example.MusicCompany.model;
+package pl.przybylski.MusicHouse.model;
 
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Entity
 public class Album {

@@ -1,6 +1,6 @@
-package com.example.MusicCompany.repository;
+package pl.przybylski.MusicHouse.repository;
 
-import com.example.MusicCompany.model.Artist;
+import pl.przybylski.MusicHouse.model.Artist;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ArtistRepository extends JpaRepository<Artist, Long> {

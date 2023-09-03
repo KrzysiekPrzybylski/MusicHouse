@@ -1,10 +1,10 @@
-package com.example.MusicCompany;
+package pl.przybylski.MusicHouse;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MusicCompanyApplicationTests {
+class MusicHouseApplicationTests {
 
 	@Test
 	void contextLoads() {
