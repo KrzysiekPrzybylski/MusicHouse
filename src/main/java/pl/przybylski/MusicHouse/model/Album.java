@@ -33,6 +33,8 @@ public class Album {
         artists.add(artist);
     }
 
+    //gettery i settery
+
     public Long getId() {
         return id;
     }
