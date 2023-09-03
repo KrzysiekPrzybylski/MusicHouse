@@ -16,10 +16,10 @@ public class OfferController {
     @Autowired
     private SongRepository songRepository;
 
-    @GetMapping("/oferta")
+    @GetMapping("/offer")
     public String showAllAlbums(Model model) {
         model.addAttribute("albums", albumRepository.findAll());
-        return "oferta";
+        return "offer";
     }
 
     @GetMapping("/details")
