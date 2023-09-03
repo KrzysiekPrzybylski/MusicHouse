@@ -1,22 +1,60 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html  xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dodaj artystę</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
 
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .centered {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .centered:hover {
+            background-color: #0056b3;
+        }
+    </style>
 
 </head>
 <body>
 <header>
-    <h1 th:text="${'&#127932 '+ album.get().getName()}" style="font-size: xxx-large"></h1>
-    <h3 th:text="${'Cena: ' + album.get().getPrice()}" style="font-size: x-large"></h3>
+    <t1 th:text="${album.get().getName()}" style="font-size: x-large"></t1>
+    <t1 th:text="${'Cena: ' + album.get().getPrice()}" style="font-size: x-large"></t1>
 
 </header>
 
-<form id="form" th:action="@{/app/add-song(id=${album.get().getId()})}" method="post">
+<form id="form" th:action="@{/start/add-song(id=${album.get().getId()})}" method="post">
     <div class="form-group">
-        <label><h2>Piosenki:</h2></label>
+        <label><t1>Utwory:</t1></label>
         <select name="songName">
             <option th:each="song : ${allSongs}" th:value="${song.getId()}" th:text="${song.getName()}"/>
         </select><br/>
@@ -24,7 +62,7 @@
     </div>
 
     <div class="form-group">
-        <label><h2>Artyści:</h2></label>
+        <label><t1>Artyści:</t1></label>
         <select name="selectedValues" multiple="multiple">
             <option th:each="artist : ${allArtist}" th:value="${artist.getId()}"
                     th:text="${artist.getName() + ' ' + artist.getSurname()}"></option>
@@ -32,12 +70,12 @@
     </div>
 
     <div style="justify-content: center">
-        <button th:href="@{/app/add-song(id=${album.get().getId()})}" method="post">Dodaj piosenkę wraz z artystami
+        <button th:href="@{/start/add-song(id=${album.get().getId()})}" method="post">Dodaj piosenkę wraz z artystami
         </button>
-        <a th:href="@{/app/oferta}" style="text-decoration: none; color: white;">
-            <div class="goToOgferta"
+        <a th:href="@{/start/offer}" style="text-decoration: none; color: white;">
+            <div class="goToOffer"
                  style="text-align: center; font-size: 22px; width: 300px; height: 50px; padding: 10px; margin-left: 45vw; margin-top: 20px; background-color: #333333; border-radius: 10px">
-                Przejdź do oferty wydawnictwa
+                Przekieruj do oferty
             </div>
         </a>
 
@@ -46,7 +84,7 @@
 </form>
 <script>
     document.getElementById('form').addEventListener('submit', function (event) {
-        alert('Piosenka została poprawnie dodana!');
+        alert('Utwór dodany!');
     });
 </script>
 </body>

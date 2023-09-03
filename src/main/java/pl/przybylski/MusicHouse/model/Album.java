@@ -1,7 +1,6 @@
 package pl.przybylski.MusicHouse.model;
 
 import jakarta.persistence.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +25,6 @@ public class Album {
         this.songs = songs;
         this.artists = artists;
     }
-
     public void addSong(Song song) {
         songs.add(song);
     }

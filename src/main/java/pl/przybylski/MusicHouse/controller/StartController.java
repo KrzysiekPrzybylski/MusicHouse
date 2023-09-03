@@ -4,11 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/app")
-public class AppController {
+@RequestMapping("/start")
+public class StartController {
 
     @GetMapping()
     public String showMainPage() {
-        return "app";
+        return "start";
     }
 }

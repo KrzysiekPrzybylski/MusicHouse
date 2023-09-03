@@ -1,7 +1,6 @@
 package pl.przybylski.MusicHouse.model;
 
 import jakarta.persistence.*;
-
 import java.util.List;
 
 @Entity

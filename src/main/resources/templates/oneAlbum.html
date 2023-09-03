@@ -1,15 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en" >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista Albumów</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
 
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .centered {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .centered:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
 <header>
-    <span><h1 th:text="${'&#127932 ' + album.get().getName()}" style="font-size: xxx-large"></h1></h1></span>
-    <h2 th:text="${' Cena: ' + album.get().getPrice() + ' PLN'}" style="font-size: 30px"></h2>
+    <span><t1 th:text="${ album.get().getName()}" style="font-size: x-large"></t1></span>
+    <t1 th:text="${' Cena: ' + album.get().getPrice() + ' PLN'}" style="font-size: 30px"></t1>
 </header>
 
 <section style="margin-left: 22vw">
@@ -17,18 +55,18 @@
         <li th:each="song : ${album.get().getSongs()}">
             <div class="container">
                 <div class="centered" style="justify-content: center; width: 20vw; height: 5vw">
-                    <h2 th:text="${song.name}" style="text-align: center;font-size: 36px;"></h2>
+                    <t1 th:text="${song.name}" style="text-align: center;font-size: 36px;"></t1>
                 </div>
                 <div class="centered" style="width: 35vw; height: 5vw">
                     <ul>
                         <li th:each="artist : ${song.getArtists()}">
-                            <h3 th:text="*{artist.getName()}" style="display: inline; font-size: 1vw;"></h3>
-                            <h3 th:text="*{artist.getSurname()}" style="display: inline;font-size: 1vw;"></h3>
-                            <h3 th:text="*{', Lat: ' + artist.getAge()}" style="display: inline;font-size: 1vw;"></h3>
-                            <h3 th:text="*{', Kraj: ' + artist.getCountry()}"
-                                style="display: inline;font-size: 1vw;"></h3>
-                            <h3 th:text="*{', Typ muzyki: ' + artist.getType()}"
-                                style="display: inline;font-size: 1vw;"></h3>
+                            <t1 th:text="*{artist.getName()}" style="display: inline; font-size: 1vw;"></t1>
+                            <t1 th:text="*{artist.getSurname()}" style="display: inline;font-size: 1vw;"></t1>
+                            <t1 th:text="*{', Lat: ' + artist.getAge()}" style="display: inline;font-size: 1vw;"></t1>
+                            <t1 th:text="*{', Kraj: ' + artist.getCountry()}"
+                                style="display: inline;font-size: 1vw;"></t1>
+                            <t1 th:text="*{', Typ muzyki: ' + artist.getType()}"
+                                style="display: inline;font-size: 1vw;"></t1>
                         </li>
                     </ul>
                 </div>
@@ -38,10 +76,10 @@
 </section>
 
 <div class="container">
-    <form th:action="@{/app/add-song(id=${album.get().getId()})}" method="post">
+    <form th:action="@{/start/add-song(id=${album.get().getId()})}" method="post">
         <button class="centered" type="submit"
-                style="background-color: green; width: 25vw; height: 5vw; font-size: 2vw; justify-content: center; margin-left: 35vw">
-            Dodaj piosenki i artystów
+                style="background-color: dodgerblue; width: 25vw; height: 5vw; font-size: 2vw; justify-content: center; margin-left: 35vw">
+            Dodaj utwory oraz artystów
         </button>
     </form>
 </div>

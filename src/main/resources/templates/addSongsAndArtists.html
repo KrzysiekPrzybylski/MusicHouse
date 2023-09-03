@@ -1,23 +1,60 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en" >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dodaj artystę</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
 
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
 
+        .container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .centered {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .centered:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
 <header>
-    <h1 th:text="${album.get().getName()}" style="font-size: xxx-large"></h1>
-    <h3 th:text="${'Cena: ' + album.get().getPrice()}" style="font-size: x-large"></h3>
+    <t1 th:text="${album.get().getName()}" style="font-size: x-large"></t1>
+    <t1 th:text="${'Cena: ' + album.get().getPrice()}" style="font-size: x-large"></t1>
 
 </header>
 
-<form th:action="@{/app/add-song(id=${latestID})}" method="post">
+<form th:action="@{/start/add-song(id=${latestID})}" method="post">
 
     <div class="form-group">
-        <label><h2>Piosenki:</h2></label>
+        <label><t1>Utwory:</t1></label>
         <select name="songName">
             <option th:each="song : ${allSongs}" th:value="${song.getId()}" th:text="${song.getName()}"/>
         </select><br/>
@@ -25,16 +62,16 @@
     </div>
 
     <div class="form-group">
-        <label><h2>Artyści:</h2></label>
+        <label><t1>Artyści:</t1></label>
         <select name="selectedValues" multiple="multiple">
             <option th:each="artist : ${allArtist}" th:value="${artist.getId()}"
                     th:text="${artist.getName() + ' ' + artist.getSurname()}"></option>
         </select><br/>
     </div>
 
-    <button th:href="@{/app/add-song(id=${latestID})}" method="post">Dodaj piosenkę wraz z artystami</button>
+    <button th:href="@{/start/add-song(id=${latestID})}" method="post">Dodaj utwór wraz z artystami</button>
 
-    <button th:href="@{/app/oferta}">Dodaj album</button>
+    <button th:href="@{/start/offer}">Dodaj album</button>
 </form>
 </body>
 </html>
