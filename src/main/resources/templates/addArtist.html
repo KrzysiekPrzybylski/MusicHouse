@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dodaj artystę</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .centered {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .centered:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<br>
+<div></div>
+</br>
+<body>
+<header>
+    <span><t1 style="font-size: x-large; text-align: center"> Dodaj artystę</t1></span>
+</header>
+<br>
+<div></div>
+</br>
+
+<form id="contact-form" th:action="@{/start/add-artist}" th:object="${artist}" method="post">
+    <div class="form-group">
+        <label for="name"><t1 style="font-size: x-large; text-align: center">Imię:</t1></label>
+        <input type="text" id="name" name="name" th:field="*{name}" required>
+    </div>
+    <br>
+    <div></div>
+    </br>
+    <div class="form-group">
+        <label for="surname"><t1 style="font-size: x-large; text-align: center">Nazwisko:</t1></label>
+        <input type="text" id="surname" name="surname" th:field="*{surname}" required><br>
+    </div>
+    <br>
+    <div></div>
+    </br>
+    <div class="form-group">
+        <label for="age"><t1 style="font-size: x-large; text-align: center">Wiek:</t1></label>
+        <input type="number" min="18" id="age" name="age" th:field="*{age}" required><br>
+    </div>
+    <br>
+    <div></div>
+    </br>
+    <div class="form-group">
+        <label for="country"><t1 style="font-size: x-large; text-align: center">Kraj pochodzenia:</t1></label>
+        <div class="custom-select" style="width:180px;">
+            <select id="country" th:field="*{country}">
+                <option selected value="Polska">Polska</option>
+                <option value="Ukraina">Ukraina</option>
+                <option value="Szwajcaria">Szwajcaria</option>
+            </select>
+        </div>
+        <br>
+        <div></div>
+        </br>
+    </div>
+
+    <div class="form-group">
+        <label for="type"><t1 style="font-size: x-large; text-align: center">Typ muzyki:</t1></label>
+        <input type="text" id="type" name="type" th:field="*{type}" required><br>
+    </div>
+    <br>
+    <div></div>
+    </br>
+    <button type="submit"; style="font-size: x-large; text-align: center" >Dodaj artystę</button>
+</form>
+
+<script>
+    document.getElementById('contact-form').addEventListener('submit', function (event) {
+        alert('Dodano prawidłowo!');
+    });
+</script>
+</body>
+</html>

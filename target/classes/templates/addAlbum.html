@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dodaj artystę</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .centered {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .centered:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <br>
+    <div></div>
+    </br>
+
+</head>
+<body>
+<header>
+    <span><t1 style="font-size: x-large; text-align: center"> Dodaj nowy album</t1></span>
+</header>
+<br>
+<div></div>
+</br>
+<form th:action="@{/start/add-song(id=${latestID})}" method="post">
+    <div class="form-group">
+        <label for="name"><t1 style="font-size: x-large; text-align: center">Nazwa albumu:</t1></label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <br>
+    <div></div>
+    </br>
+    <div class="form-group">
+        <label for="price"><t1 style="font-size: x-large; text-align: center">Podaj sugerowaną cenę:</t1></label>
+        <input type="text" id="price" name="price" required>
+    </div>
+    <br>
+    <div></div>
+    </br>
+    <div class="form-group">
+        <label><t1 style="font-size: x-large; text-align: center">Utwory:</t1></label>
+        <select name="songName">
+            <option th:each="song : ${allSongs}" th:value="${song.getId()}" th:text="${song.getName()}"/>
+        </select><br/>
+        <br/>
+    </div>
+    <br>
+    <div></div>
+    </br>
+    <div class="form-group">
+        <label><t1 style="font-size: x-large; text-align: center">Artyści:</t1></label>
+        <select name="selectedValues" multiple="multiple">
+            <option th:each="artist : ${allArtist}" th:value="${artist.getId()}"
+                    th:text="${artist.getName() + ' ' + artist.getSurname()}"></option>
+        </select><br/>
+    </div>
+    <br>
+    <div></div>
+    </br>
+    <button type="submit" value="Submit">Dodaj utwór wraz z artystami</button>
+</form>
+</body>
+</html>
+

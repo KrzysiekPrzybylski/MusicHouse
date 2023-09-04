@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wydawnictwo Muzyczne</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .centered {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .centered:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<header style="font-size: x-large; text-align: center">
+    <span><t1> Wydawnictwo Muzyczne</t1></span>
+</header>
+<br>
+<div></div>
+</br>
+<div class="container">
+    <br>
+    <div></div>
+    </br>
+    <a href="/start/add-artist">
+        <div class="centered">
+            Artysta
+        </div>
+    </a>
+    <br>
+        <div></div>
+    </br>
+
+    <a href="/start/add-album">
+        <div class="centered">
+            Album
+        </div>
+    </a>
+    <br>
+    <div></div>
+
+    </br>
+    <a href="/start/offer">
+        <div class="centered">
+            Oferta wydawnictwa
+        </div>
+    </a>
+</div>
+
+</body>
+</html>

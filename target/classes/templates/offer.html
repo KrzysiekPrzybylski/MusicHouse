@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Albumów</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .centered {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .centered:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <span><t1 style="font-size: x-large; text-align: center"> Lista Albumów</t1></span>
+</header>
+<div class="linksOffer">
+    <a href="/start/add-artist">
+        <div class="link"; style="font-size: x-large; text-align: center">Dodaj artystę</div>
+    </a>
+    <a href="/start/add-album">
+        <div class="link"; style="font-size: x-large; text-align: center">Dodaj album</div>
+    </a>
+</div>
+
+<section class="album-list">
+    <t1 style="font-size: x-large; text-align: center">Albumy w ofercie:</t1>
+    <ul>
+        <li th:each="album : ${albums}">
+            <div class="album">
+                <t1 th:text="${album.getName()}"></t1>
+                <p th:text="'Sugerowana cena: ' + ${album.getPrice()} + ' PLN'"></p>
+                <p th:text="'Ilość piosenek: ' + ${album.getSongs().size()}"></p>
+            </div>
+            <div class="album" style="float: right;">
+                <a th:href="@{/start/details(id=${album.id})}">Podgląd</a>
+            </div>
+        </li>
+    </ul>
+</section>
+
+</body>
+</html>
