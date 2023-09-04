@@ -15,6 +15,7 @@
 # "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
+
 # under the License.
 # ----------------------------------------------------------------------------
 
@@ -36,6 +37,7 @@
 if [ -z "$MAVEN_SKIP_RC" ] ; then
 
   if [ -f /usr/local/etc/mavenrc ] ; then
+
     . /usr/local/etc/mavenrc
   fi
 
